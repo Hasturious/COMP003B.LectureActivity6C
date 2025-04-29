@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace COMP003B.LectureAcvtivity6.Models
+namespace COMP003B.LectureActivity6C.Models
 {
-    public class Enrollments 
+    public class Enrollment
     {
         public int ID { get; set; }
-        public string StudentID { get; set; }
-        public string CourseID { get; set; }
+        public int StudentID { get; set; }
+        public int CourseID { get; set; }
 
         //collection navigation property
-        //public virtual ICollection<Enrollment>? Enrollments { get; set; }
+        public virtual ICollection<Enrollment>? Enrollments { get; set; }
     }
 }

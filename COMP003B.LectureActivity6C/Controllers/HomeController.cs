@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using COMP003B.LectureAcvtivity6.Models;
+using COMP003B.LectureActivity6C.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace COMP003B.LectureAcvtivity6.Controllers
+namespace COMP003B.LectureActivity6C.Controllers
 {
     public class HomeController : Controller
     {

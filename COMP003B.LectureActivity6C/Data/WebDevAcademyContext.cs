@@ -1,7 +1,7 @@
-﻿using COMP003B.LectureAcvtivity6.Models;
+﻿using COMP003B.LectureActivity6C.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace COMP003B.LectureAcvtivity6.Data
+namespace COMP003B.LectureActivity6C.Data
 {
     public class WebDevAcademyContext : DbContext
     {
@@ -10,6 +10,6 @@ namespace COMP003B.LectureAcvtivity6.Data
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Enrollments> Enrollments { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
     }
 }

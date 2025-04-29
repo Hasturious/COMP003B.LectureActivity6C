@@ -1,8 +1,8 @@
-using COMP003B.LectureActivity6.Data;
-using COMP003B.LectureActivity6.Data;
+using COMP003B.LectureActivity6C.Data;
+using COMP003B.LectureActivity6C.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace COMP003B.LectureAcvtivity6
+namespace COMP003B.LectureActivity6C
 {
     public class Program
     {
@@ -14,7 +14,7 @@ namespace COMP003B.LectureAcvtivity6
             builder.Services.AddControllersWithViews();
                                             
             builder.Services.AddDbContext<WebDevAcademyContext>(options =>
-                options.UseSqlServer("Name=ConnectionStrings:DefaultConnections"));
+                options.UseSqlServer("Name=ConnectionStrings:DefaultConnection"));
 
             var app = builder.Build();
 

@@ -1,4 +1,4 @@
-namespace COMP003B.LectureAcvtivity6.Models
+namespace COMP003B.LectureActivity6C.Models
 {
     public class ErrorViewModel
     {

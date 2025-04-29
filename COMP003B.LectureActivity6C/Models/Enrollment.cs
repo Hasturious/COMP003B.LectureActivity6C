@@ -9,6 +9,7 @@ namespace COMP003B.LectureActivity6C.Models
         public int CourseID { get; set; }
 
         //collection navigation property
-        public virtual ICollection<Enrollment>? Enrollments { get; set; }
+        public virtual Student? Student { get; set; }
+        public virtual Course? Course { get; set; }
     }
 }

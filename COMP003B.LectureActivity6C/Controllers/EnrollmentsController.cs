@@ -34,7 +34,7 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var enrollment = await _context.Enrollments
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (enrollment == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace COMP003B.LectureActivity6C.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,StudentID,CourseID")] Enrollment enrollment)
+        public async Task<IActionResult> Create([Bind("Id,StudentId,CourseId")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace COMP003B.LectureActivity6C.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,StudentID,CourseID")] Enrollment enrollment)
         {
-            if (id != enrollment.ID)
+            if (id != enrollment.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace COMP003B.LectureActivity6C.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EnrollmentExists(enrollment.ID))
+                    if (!EnrollmentExists(enrollment.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var enrollment = await _context.Enrollments
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (enrollment == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace COMP003B.LectureActivity6C.Controllers
 
         private bool EnrollmentExists(int id)
         {
-            return _context.Enrollments.Any(e => e.ID == id);
+            return _context.Enrollments.Any(e => e.Id == id);
         }
     }
 }

@@ -34,16 +34,16 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var course = await _context.Courses
-                .FirstOrDefaultAsync(m => m.CourseID == id);
+                .FirstOrDefaultAsync(m => m.CourseId == id);
             if (course == null)
             {
                 return NotFound();
             }
 
             ViewBag.Students = from s in _context.Students
-                               join e in _context.Enrollments on s.StudentID equals e.StudentID
-                               join c in _context.Courses on  e.CourseID equals c.CourseID
-                               where c.CourseID == id
+                               join e in _context.Enrollments on s.StudentId equals e.StudentId
+                               join c in _context.Courses on e.CourseId equals c.CourseId
+                               where c.CourseId == id
                                select s;
 
             return View(course);
@@ -92,9 +92,9 @@ namespace COMP003B.LectureActivity6C.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CourseID,Title")] Course course)
+        public async Task<IActionResult> Edit(int id, [Bind("CourseId,Title")] Course course)
         {
-            if (id != course.CourseID)
+            if (id != course.CourseId)
             {
                 return NotFound();
             }
@@ -108,7 +108,7 @@ namespace COMP003B.LectureActivity6C.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CourseExists(course.CourseID))
+                    if (!CourseExists(course.CourseId))
                     {
                         return NotFound();
                     }
@@ -131,7 +131,7 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var course = await _context.Courses
-                .FirstOrDefaultAsync(m => m.CourseID == id);
+                .FirstOrDefaultAsync(m => m.CourseId == id);
             if (course == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace COMP003B.LectureActivity6C.Controllers
 
         private bool CourseExists(int id)
         {
-            return _context.Courses.Any(e => e.CourseID == id);
+            return _context.Courses.Any(e => e.CourseId == id);
         }
     }
 }

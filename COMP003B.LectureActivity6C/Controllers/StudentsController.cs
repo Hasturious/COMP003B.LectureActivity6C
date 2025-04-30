@@ -34,16 +34,16 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var student = await _context.Students
-                .FirstOrDefaultAsync(m => m.StudentID == id);
+                .FirstOrDefaultAsync(m => m.StudentId == id);
             if (student == null)
             {
                 return NotFound();
             }
             //get the courses the student is enrolled in
             ViewBag.Courses = from s in _context.Students
-                              join e in _context.Enrollments on s.StudentID equals e.StudentID
-                              join c in _context.Courses on e.CourseID equals c.CourseID
-                              where s.StudentID == id
+                              join e in _context.Enrollments on s.StudentId equals e.StudentId
+                              join c in _context.Courses on e.CourseId equals c.CourseId
+                              where s.StudentId == id
                               select c;
             return View(student);
         }
@@ -59,7 +59,7 @@ namespace COMP003B.LectureActivity6C.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,Name,Email,Age")] Student student)
+        public async Task<IActionResult> Create([Bind("StudentId,Name,Email,Age")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -91,9 +91,9 @@ namespace COMP003B.LectureActivity6C.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StudentID,Name,Email,Age")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("StudentId,Name,Email,Age")] Student student)
         {
-            if (id != student.StudentID)
+            if (id != student.StudentId)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace COMP003B.LectureActivity6C.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.StudentID))
+                    if (!StudentExists(student.StudentId))
                     {
                         return NotFound();
                     }
@@ -130,7 +130,7 @@ namespace COMP003B.LectureActivity6C.Controllers
             }
 
             var student = await _context.Students
-                .FirstOrDefaultAsync(m => m.StudentID == id);
+                .FirstOrDefaultAsync(m => m.StudentId == id);
             if (student == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace COMP003B.LectureActivity6C.Controllers
 
         private bool StudentExists(int id)
         {
-            return _context.Students.Any(e => e.StudentID == id);
+            return _context.Students.Any(e => e.StudentId == id);
         }
     }
 }

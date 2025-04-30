@@ -4,7 +4,7 @@ namespace COMP003B.LectureActivity6C.Models
 {
     public class Student
     {
-        public int StudentID { get; set; }
+        public int StudentId { get; set; }
 
         [Required]
         public string Name { get; set; }

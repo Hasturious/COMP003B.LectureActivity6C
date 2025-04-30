@@ -1,5 +1,4 @@
 using COMP003B.LectureActivity6C.Data;
-using COMP003B.LectureActivity6C.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace COMP003B.LectureActivity6C
